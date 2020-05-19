@@ -10,7 +10,7 @@ class Contact extends React.Component {
         <span className="contact__data">{name}</span>
         <span className="contact__data">{phone}</span>
         <span className="contact__data">{country}</span>
-        <span className="contact__data">{admissionDate}</span>
+        <span className="contact__data">{new Intl.DateTimeFormat('pt-BR').format(new Date(admissionDate))}</span>
         <span className="contact__data">{company}</span>
         <span className="contact__data">{department}</span>
       </article>
