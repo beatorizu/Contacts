@@ -8,13 +8,13 @@ import Topbar from './components/Topbar'
 class App extends React.Component {
   render() {
     return (
-      <React.Fragment>
+      <div className="app" data-testid="app">
         <Topbar />
 
         <Filter />
 
         <Contacts />
-      </React.Fragment>
+      </div>
     )
   }
 }
