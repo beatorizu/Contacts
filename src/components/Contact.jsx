@@ -1,9 +1,11 @@
 import React from 'react';
 
+import dayjs from 'dayjs'
+
 class Contact extends React.Component {
   render() {
     const { avatar, name, phone, country, admissionDate, company, department } = this.props.data;
-    const date = !admissionDate ? "" : new Intl.DateTimeFormat('pt-BR').format(new Date(admissionDate))
+    const date = !admissionDate ? "" : dayjs(admissionDate).format('DD/MM/YYYY')
 
     return (
       <article className="contact" data-testid="contact">
