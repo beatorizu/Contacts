@@ -19,7 +19,7 @@ class App extends React.Component {
 
   componentDidMount() {
     fetch('https://5e82ac6c78337f00160ae496.mockapi.io/api/v1/contacts').then(response => {
-      response.json().then(data => this.setState({ contacts: data }))
+      response.json().then(data => this.setState({ contacts: data, sortedContacts: data }))
     })
   }
 
@@ -30,7 +30,7 @@ class App extends React.Component {
 
         <Filter />
 
-        <Contacts data={this.state.contacts} />
+        <Contacts data={this.state.sortedContacts} />
       </div>
     )
   }
