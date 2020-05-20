@@ -17,8 +17,22 @@ class App extends React.Component {
     };
   }
 
+  compare = (firstContact, secondContact, key) => {
+    if (firstContact[key] < secondContact[key]) {
+      return -1
+    } else if (firstContact[key] > secondContact[key]) {
+      return 1
+    }
+    return 0
+  }
+
   handleSearchChange = e => {
     const sortedContacts = this.state.contacts.filter(contact => new RegExp(e.target.value, 'i').test(contact.name));
+    this.setState({ sortedContacts })
+  }
+
+  handleSortChange = key => {
+    const sortedContacts = [...this.state.sortedContacts].sort((firstContact, secondContact) => this.compare(firstContact, secondContact, key));
     this.setState({ sortedContacts })
   }
 
@@ -33,7 +47,7 @@ class App extends React.Component {
       <div className="app" data-testid="app">
         <Topbar />
 
-        <Filter handleSearchChange={ this.handleSearchChange }/>
+        <Filter handleSearchChange={this.handleSearchChange} handleSortChange={this.handleSortChange} />
 
         <Contacts data={this.state.sortedContacts} />
       </div>
