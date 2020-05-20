@@ -16,7 +16,7 @@ class Contacts extends React.Component {
             <span className="contact__data">Empresa</span>
             <span className="contact__data">Departamento</span>
           </article>
-          {this.props.data.map(contact => <Contact data={contact} key={contact.id} />)}
+          {this.props.data?.map(contact => <Contact data={contact} key={contact.id} />)}
         </section>
       </div>
 
