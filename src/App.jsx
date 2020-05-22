@@ -31,8 +31,8 @@ class App extends React.Component {
     this.setState({ sortedContacts })
   }
 
-  handleSortChange = key => {
-    const sortedContacts = [...this.state.sortedContacts].sort((firstContact, secondContact) => this.compare(firstContact, secondContact, key));
+  handleSortChange = e => {
+    const sortedContacts = [...this.state.sortedContacts].sort((firstContact, secondContact) => this.compare(firstContact, secondContact, e.target.name));
     this.setState({ sortedContacts })
   }
 

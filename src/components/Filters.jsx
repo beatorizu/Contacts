@@ -13,23 +13,23 @@ class Filters extends React.Component {
             </button>
           </div>
 
-          <button className="filters__item is-selected" onClick={() => this.props.handleSortChange('name')}>
+          <button className="filters__item is-selected" onClick={this.props.handleSortChange} name='name'>
             Nome <i className="fas fa-sort-down" />
           </button>
 
-          <button className="filters__item" onClick={() => this.props.handleSortChange('country')}>
+          <button className="filters__item" onClick={this.props.handleSortChange} name='country'>
             País <i className="fas fa-sort-down" />
           </button>
 
-          <button className="filters__item" onClick={() => this.props.handleSortChange('company')}>
+          <button className="filters__item" onClick={this.props.handleSortChange} name='company'>
             Empresa <i className="fas fa-sort-down" />
           </button>
 
-          <button className="filters__item" onClick={() => this.props.handleSortChange('department')}>
+          <button className="filters__item" onClick={this.props.handleSortChange} name='department'>
             Departamento <i className="fas fa-sort-down" />
           </button>
 
-          <button className="filters__item" onClick={() => this.props.handleSortChange('admissionDate')}>
+          <button className="filters__item" onClick={this.props.handleSortChange} name='admissionDate'>
             Data de admissão <i className="fas fa-sort-down" />
           </button>
         </section>
