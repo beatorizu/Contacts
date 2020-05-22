@@ -207,10 +207,27 @@ button {
 }
 
 .contact__data {
-  width: calc(100% / 6);
   padding: 0 10px;
 }
 
 .contact__data:nth-child(2) {
   color: #4C84FF;
+}
+
+/* Small screens */
+@media only screen and (max-width: 600px) {
+  .contact__data:nth-child(4), .contact__data:nth-child(5), .contact__data:nth-child(6), .contact__data:nth-child(7) {
+    display: none;
+  }
+
+  .contact__data {
+    width: calc(100% / 3);
+  }
+}
+
+/* Large screens */
+@media only screen and (min-width: 600px) {
+  .contact__data {
+    width: calc(100% / 6);
+  }
 }
