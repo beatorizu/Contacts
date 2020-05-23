@@ -14,14 +14,15 @@ class App extends React.Component {
       searchFilter: [],
       sortBy: '',
       sortedContacts: [],
+      order: 1
     };
   }
 
-  compare = (firstContact, secondContact, key) => {
+  compare = order => (firstContact, secondContact, key) => {
     if (firstContact[key] < secondContact[key]) {
-      return -1
+      return -1 * order
     } else if (firstContact[key] > secondContact[key]) {
-      return 1
+      return 1 * order
     }
     return 0
   }
@@ -32,7 +33,14 @@ class App extends React.Component {
   }
 
   handleSortChange = e => {
-    const sortedContacts = [...this.state.sortedContacts].sort((firstContact, secondContact) => this.compare(firstContact, secondContact, e.target.name));
+    if (e.target.name === this.state.sortBy) {
+      var sort = this.compare(-this.state.order)
+      this.setState({ order: -this.state.order })
+    } else {
+      var sort = this.compare(1)
+      this.setState({ order: 1 })
+    }
+    const sortedContacts = [...this.state.sortedContacts].sort((firstContact, secondContact) => sort(firstContact, secondContact, e.target.name));
     this.setState({ sortedContacts, sortBy: e.target.name });
   }
 
